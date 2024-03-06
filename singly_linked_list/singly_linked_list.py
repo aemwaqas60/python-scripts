@@ -137,7 +137,7 @@ print(f'----- Before remove list :  -----')
 myList.print_list()
 
 print(f'Remove node from start : {myList.remove(0)}')  # Time complexity = O(1)
-print(f'Remove Node node at 7th index : {myList.remove(6)}')  # Time complexity = O(n)
+print(f'Remove Node node at 6th index : {myList.remove(5)}')  # Time complexity = O(n)
 
 print(f'----- After remove list :  -----')
 
