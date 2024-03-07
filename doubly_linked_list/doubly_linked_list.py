@@ -87,7 +87,7 @@ class DoublyLinkedList:
             return True
         return False
 
-    def insert(self, index, value):  # TC O(n)
+    def insert(self, index, value):  # TC at start O(1), TC at end O(1), TC in worst case O(n/2)
         if index < 0 or index >= self.length:
             return None
         if index == 0:
@@ -104,7 +104,7 @@ class DoublyLinkedList:
             return True
         return False
 
-    def remove(self, index):  # TC O(n)
+    def remove(self, index):  # TC at start O(1), TC at end O(1), TC in worst case O(n/2)
         print(f'index : {index}')
         if index < 0 or index >= self.length:
             return None
