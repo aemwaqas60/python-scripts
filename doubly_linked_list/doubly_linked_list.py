@@ -65,6 +65,28 @@ class DoublyLinkedList:
         self.length -= 1
         return True
 
+    def get_value(self, index):  # TC O(n/2)
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        if index < self.length / 2:
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev
+        return temp
+
+    def set_value(self, index, value):  # TC O(n)
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.get_value(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
     def print_list(self):  # TC O(n)
         temp = self.head
         while temp:
@@ -75,7 +97,7 @@ class DoublyLinkedList:
 myList = DoublyLinkedList()
 print(f"--- Appending new nodes values 10 to 15  ---")
 
-for i in range(10, 15):
+for i in range(10, 20):
     myList.append(i)
 myList.print_list()
 
@@ -88,4 +110,10 @@ print(f'prepend node 9: {myList.prepend(9)}')
 myList.print_list()
 
 print(f'pop node from start : {myList.pop_first()}')
+myList.print_list()
+
+print(f'get node value at 3: {myList.get_value(3).value}')
+myList.print_list()
+
+print(f'set node value 33 at 3 index : {myList.set_value(3, 33)}')
 myList.print_list()
