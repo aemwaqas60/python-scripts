@@ -29,8 +29,9 @@ class Stack:
             self.top = None
         else:
             self.top = self.top.next
+            temp.next = None
         self.height -= 1
-        return temp
+        return temp.value
 
     def print_stack(self):  # TC O(n)
         temp = self.top
@@ -42,13 +43,13 @@ class Stack:
 myStack = Stack()
 
 print(f'Pushing 1 to 10 elements in stack : ')
-for i in range(1, 11):
+for i in range(1, 3):
     myStack.push(i)
 myStack.print_stack()
 
-print(f'\nPop element : {myStack.pop().value}')
+print(f'\nPop element : {myStack.pop()}')
 myStack.print_stack()
-print(f'\nPop element : {myStack.pop().value}')
+print(f'\nPop element : {myStack.pop()}')
 myStack.print_stack()
-print(f'\nPop element : {myStack.pop().value}')
+print(f'\nPop element : {myStack.pop()}')
 myStack.print_stack()
