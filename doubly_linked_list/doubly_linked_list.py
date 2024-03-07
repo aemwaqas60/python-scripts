@@ -87,6 +87,40 @@ class DoublyLinkedList:
             return True
         return False
 
+    def insert(self, index, value):  # TC O(n)
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        newNode = Node(value)
+        temp = self.get_value(index)
+        if temp:
+            newNode.next = temp
+            newNode.prev = temp.prev
+            temp.prev.next = newNode
+            temp.prev = newNode
+            return True
+        return False
+
+    def remove(self, index):  # TC O(n)
+        print(f'index : {index}')
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length:
+            return self.pop()
+        temp = self.get_value(index)
+        if temp:
+            temp.prev.next = temp.next
+            temp.next.prev = temp.prev
+            temp.next = None
+            temp.prev = None
+            return True
+        return False
+
     def print_list(self):  # TC O(n)
         temp = self.head
         while temp:
@@ -116,4 +150,16 @@ print(f'get node value at 3: {myList.get_value(3).value}')
 myList.print_list()
 
 print(f'set node value 33 at 3 index : {myList.set_value(3, 33)}')
+myList.print_list()
+
+print(f'Remove node 4 index : {myList.remove(4)}')
+myList.print_list()
+
+print(f'Remove 1st node  : {myList.remove(0)}')
+myList.print_list()
+
+print(f'Insert node at 4 index value 44 : {myList.insert(5, 44)}')
+myList.print_list()
+
+print(f'Insert node at 1st index value 22 : {myList.insert(0, 22)}')
 myList.print_list()
