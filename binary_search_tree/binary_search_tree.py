@@ -9,7 +9,7 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def insert(self, value):
+    def insert(self, value):  # TC : Ideal case O(log n), worst case O(n)
         newNode = Node(value)
 
         if self.root is None:
@@ -30,7 +30,7 @@ class BinarySearchTree:
                     return True
                 temp = temp.right
 
-    def display(self, value):
+    def display(self, value):  # TC : Ideal case O(log n), worst case O(n)
         if self.root is None:
             return False
         temp = self.root
